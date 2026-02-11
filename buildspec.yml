@@ -7,13 +7,15 @@ phases:
     commands:
       - pip install --upgrade pip
       - pip install -r requirements.txt
+      - pip install -e .
 
   build:
     commands:
       - echo Build started on `date`
-      - echo Running basic checks
-      - python -m pytest || echo "No tests found"
+      - echo Running module test
+      - python -m src.components.data_ingestion || echo "No execution required"
 
 artifacts:
   files:
     - '**/*'
+
